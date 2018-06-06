@@ -1,27 +1,29 @@
 package br.ufjf.dcc192;
+
 public class Participante {
-    private Integer id;
+
+    private Long id;
     private String nome;
     private String email;
     private String senha;
     private Participante sorteado;
 
-    public Participante(Integer id, String nome, String email, String senha, Participante sorteado) {
+    public Participante(Long id, String nome, String email, String senha, Participante sorteado) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.sorteado = sorteado;
     }
-    
+
     public Participante() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,5 +58,5 @@ public class Participante {
     public void setSorteado(Participante sorteado) {
         this.sorteado = sorteado;
     }
-    
+
 }
