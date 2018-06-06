@@ -1,14 +1,64 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.ufjf.dcc192;
 
-/**
- *
- * @author YanNotebook
- */
+import java.util.Date;
+
 public class Evento {
+    private Integer id;
+    private String titulo;
+    private double minimo;
+    private Date dataAtual;
+    private Date dataEvento;
+
+    public Evento() {
+    }
+
+    public Evento(Integer id, String titulo, double minimo, Date dataAtual, Date dataEvento) {
+        this.id = id;
+        this.titulo = titulo;
+        this.minimo = minimo;
+        this.dataAtual = dataAtual;
+        this.dataEvento = dataEvento;
+    }
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public double getMinimo() {
+        return minimo;
+    }
+
+    public void setMinimo(double minimo) {
+        this.minimo = minimo;
+    }
+
+    public Date getDataAtual() {
+        return dataAtual;
+    }
+
+    public void setDataAtual(Date dataAtual) {
+        this.dataAtual = dataAtual;
+    }
+
+    public Date getDataEvento() {
+        return dataEvento;
+    }
+
+    public void setDataEvento(Date dataEvento) {
+        this.dataEvento = dataEvento;
+    }
     
 }
