@@ -6,20 +6,29 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-    class BemVindoCommand implements Command {
+class BemVindoCommand implements Command {
 
     @Override
-        public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            {
-                
-                RequestDispatcher dispachante = request.getRequestDispatcher
-        ("/WEB-INF/bemVindo.jsp");
-                request.setAttribute("titulo", 
+    public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        {
+            Participante logando = new Participante();
+            logando = ParticipanteDao.getInstace().
+                    getParticipante(request.getParameter("txtlogin"),
+                            request.getParameter("txtsenha"));
+            if (logando != null) {
+                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/bemVindo.jsp");
+                request.setAttribute("titulo",
+                        "Logado com Sucesso");
+                request.setAttribute("usuario", logando);
+                dispachante.forward(request, response);
+            } else {
+                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/index.jsp");
+                request.setAttribute("titulo",
                         "Pagina inicial");
-                dispachante.forward(request, response);                
+                dispachante.forward(request, response);
             }
-            
         }
-        
+
     }
+
+}

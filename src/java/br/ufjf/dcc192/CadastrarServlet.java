@@ -23,13 +23,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author YanNotebook
  */
-@WebServlet(name = "AmigoOcultoServlet", urlPatterns = {"/index.html"})
-public class AmigoOcultoServlet extends HttpServlet {
+@WebServlet(name = "AmigoOcultoServlet", urlPatterns = {"/cadastrar.html"})
+public class CadastrarServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        rotas.put("/index.html", "br.ufjf.dcc192.IndexCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
 
         String clazzName = rotas.get(request.getServletPath());
         try {
@@ -37,23 +37,29 @@ public class AmigoOcultoServlet extends HttpServlet {
             comando.exec(request, response);
         } catch (ClassNotFoundException ex) {
             response.sendError(500, "erro.  " + ex);
-            Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        String logar = request.getParameter("btnlogar");
+        String cancelar = request.getParameter("btncancelar");
         String cadastrar = request.getParameter("btncadastrar");
-        if (!"".equals(logar)) {
-            rotas.put("/bemVindo.html", "br.ufjf.dcc192.BemVindoCommand");
+        if (!"".equals(cancelar)) {
+            response.sendRedirect("/index.html");
         } else if (!"".equals(cadastrar)) {
+            Participante p = new Participante();
+            p.setEmail(request.getParameter("txtemail"));
+            p.setNome(request.getParameter("txtnome"));
+            p.setSenha(request.getParameter("txtsenha"));
+            ParticipanteDao.getInstace().addParticipante(p);
+            rotas.put("/bemVindo.html", "br.ufjf.dcc192.BemVindoCommand");
 
         }
         String clazzName = rotas.get(request.getServletPath());
@@ -62,12 +68,12 @@ public class AmigoOcultoServlet extends HttpServlet {
             comando.exec(request, response);
         } catch (ClassNotFoundException ex) {
             response.sendError(500, "erro.  " + ex);
-            Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

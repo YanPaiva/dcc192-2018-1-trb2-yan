@@ -6,14 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-class IndexCommand implements Command {
+class CadastrarCommand implements Command {
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/index.jsp");
+                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/cadastrar.jsp");
                 request.setAttribute("titulo",
-                        "Pagina inicial");
+                        "Novo Usuario");
                 dispachante.forward(request, response);
          
         }

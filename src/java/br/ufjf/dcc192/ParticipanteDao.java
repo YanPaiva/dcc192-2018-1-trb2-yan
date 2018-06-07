@@ -85,7 +85,8 @@ public class ParticipanteDao {
         Participante usuario = new Participante();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery(String.format("Select * FROM amigo WHERE email=%s AND senha=%s",
+            ResultSet resultado = comando.executeQuery(String.format("Select * FROM amigo "
+                    + "WHERE email=%s AND senha=%s",
                     email, senha));
             comando.close(); 
             usuario.setNome(resultado.getString("nome"));
@@ -99,6 +100,18 @@ public class ParticipanteDao {
        if(usuario.getId() != null)
            return usuario;
        return null;
+    }
+    public void addParticipante(Participante p){
+        try{
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate(String.format("INSERT INTO amigo(email, nome, senha) VALUES('%S','%S','%S')", 
+                    p.getEmail(), p.getNome(), p.getSenha()));
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ParticipanteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    
     }
 
 }
