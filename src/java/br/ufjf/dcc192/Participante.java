@@ -7,13 +7,16 @@ public class Participante {
     private String email;
     private String senha;
     private Participante sorteado;
+    private Evento amigoOculto;
 
-    public Participante(Long id, String nome, String email, String senha, Participante sorteado) {
+    public Participante(Long id, String nome, String email,
+            String senha, Participante sorteado, Evento sorteio) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.sorteado = sorteado;
+        this.amigoOculto = sorteio;
     }
 
     public Participante() {
@@ -57,6 +60,14 @@ public class Participante {
 
     public void setSorteado(Participante sorteado) {
         this.sorteado = sorteado;
+    }
+
+    public Evento getAmigoOculto() {
+        return amigoOculto;
+    }
+
+    public void setAmigoOculto(Evento amigoOculto) {
+        this.amigoOculto = amigoOculto;
     }
 
 }

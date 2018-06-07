@@ -1,10 +1,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="jspf/cabecalho.jspf" %>
 <p>Bem vindo</p>
+<form method="POST">
+    <table border="1">
+        <tbody>
+            <tr>
+                <td><h4>E-mail: </h4></td>
+                <td><input type="text" name="txtlogin" value="" size="50" /></td>
+            </tr>
+            <tr>
+                <td><h4>Senha: </h4></td>
+                <td><input type="password" name="txtsenha" value="" size="50"/></td>
+            </tr>
+                <tr>
+                    <td><input type="submit" value="Entrar" name="btnlogar" /></td>
+                    <td><input type="submit" value="Cadastrar" name="btncadastrar"/></td>
+            </tr>        
+        </tbody>
+        
+    </table>
 
-<ul>
-    <li><a href="teste.html">Teste</a></li>
-    <li><a href="teste2.html">Teste2</a></li>
-    <li><a href="tarefas.html">Tarefas</a></li>
-</ul>
+</form>
 <%@include file="jspf/rodape.jspf" %>

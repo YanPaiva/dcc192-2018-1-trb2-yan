@@ -30,7 +30,7 @@ public class AmigoOcultoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/index.html", "br.ufjf.dcc192.IndexCommand");
-        
+
         String clazzName = rotas.get(request.getServletPath());
         try {
             Command comando = (Command) Class.forName(clazzName).newInstance();
@@ -49,7 +49,13 @@ public class AmigoOcultoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        
+        String logar = request.getParameter("btnlogar");
+        String cadastrar = request.getParameter("btncadastrar");
+        if (!"".equals(logar)) {
+            rotas.put("/bemVindo.html", "br.ufjf.dcc192.BemVindoCommand");
+        } else if (!"".equals(cadastrar)) {
+
+        }
         String clazzName = rotas.get(request.getServletPath());
         try {
             Command comando = (Command) Class.forName(clazzName).newInstance();
@@ -64,6 +70,5 @@ public class AmigoOcultoServlet extends HttpServlet {
             Logger.getLogger(AmigoOcultoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
 }
