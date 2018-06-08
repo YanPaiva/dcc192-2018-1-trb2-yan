@@ -11,7 +11,13 @@ class CadastrarCommand implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/cadastrar.jsp");
+            Participante p = new Participante();
+            p.setEmail(request.getParameter("txtemail"));
+            p.setNome(request.getParameter("txtnome"));
+            p.setSenha(request.getParameter("txtsenha"));
+            ParticipanteDao.getInstace().addParticipante(p);
+            
+            RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/cadastrar.jsp");
                 request.setAttribute("titulo",
                         "Novo Usuario");
                 dispachante.forward(request, response);

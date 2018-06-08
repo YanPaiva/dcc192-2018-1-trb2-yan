@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="jspf/cabecalho.jspf" %>
 <p>Bem vindo</p>
-<form method="POST">
+<form method="Post" action="bemvindo.html">
     <table border="1">
         <tbody>
             <tr>
@@ -13,12 +13,14 @@
                 <td><input type="password" name="txtsenha" value="" size="50"/></td>
             </tr>
                 <tr>
-                    <td><input type="submit" value="Entrar" name="btnlogar" /></td>
-                    <td><input type="submit" value="Cadastrar" name="btncadastrar"/></td>
-            </tr>        
+                    <td><input type="submit" value="Entrar"/></td>
+                    </form>
+                   <form method="post" action="cadastrar.html">
+                        <td><input type="submit" value="Cadastrar"/></a></td>
+                   </form>
+                   </tr>        
         </tbody>
         
     </table>
 
-</form>
 <%@include file="jspf/rodape.jspf" %>

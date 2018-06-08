@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="jspf/cabecalho.jspf" %>
 <p>Bem vindo</p>
-<form method="POST">
+<form method="Post">
     <table border="1">
         <tbody>
             <tr>

@@ -23,15 +23,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author YanNotebook
  */
-@WebServlet(name = "AmigoOcultoServlet", urlPatterns = {"/index.html", "/bemVindo.html"})
+@WebServlet(name = "LoginServlet", urlPatterns = {"/index.html", "/bemvindo.html",
+    "/cadastrar.html"})
 public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/index.html", "br.ufjf.dcc192.IndexCommand");
-        rotas.put("/bemVindo.html", "br.ufjf.dcc192.BemVindoCommand");
-
+        rotas.put("/bemvindo.html", "br.ufjf.dcc192.BemVindoCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
+    
         String clazzName = rotas.get(request.getServletPath());
         try {
             Command comando = (Command) Class.forName(clazzName).newInstance();
@@ -50,13 +52,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        String logar = request.getParameter("btnlogar");
-        String cadastrar = request.getParameter("btncadastrar");
-        if (!"".equals(logar)) {
-            rotas.put("/bemVindo.html", "br.ufjf.dcc192.BemVindoCommand");
-        } else if (!"".equals(cadastrar)) {
-            rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
-        }
+        rotas.put("/bemvindo.html", "br.ufjf.dcc192.BemVindoCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
+
         String clazzName = rotas.get(request.getServletPath());
         try {
             Command comando = (Command) Class.forName(clazzName).newInstance();
