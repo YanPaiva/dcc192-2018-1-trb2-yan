@@ -21,3 +21,14 @@
         <main>
             <article>
                 <h1><%=request.getAttribute("titulo")%></h1>
+                <table border="1">
+    <thead>
+        <tr>
+            <th><a href="bemvindo.html">Inicio</a></th>
+            <th><a href="sorteios.html">Sorteios</a></th>
+            <th><a href="meusorteio.html">Meu Sorteio</a></th>
+            <th><a href="index.html">Sair</a></th>
+        </tr>
+    </thead>
+</tbody>
+</table>
