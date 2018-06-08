@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author YanNotebook
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/index.html", "/bemvindo.html",
-    "/cadastrar.html"})
+    "/cadastrar.html", "/informarsenha.html"})
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
         rotas.put("/index.html", "br.ufjf.dcc192.IndexCommand");
         rotas.put("/bemvindo.html", "br.ufjf.dcc192.BemVindoCommand");
         rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
+        rotas.put("/informarsenha.html", "br.ufjf.dcc192.informarsenhaCommand");
     
         String clazzName = rotas.get(request.getServletPath());
         try {
@@ -54,7 +55,8 @@ public class LoginServlet extends HttpServlet {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/bemvindo.html", "br.ufjf.dcc192.BemVindoCommand");
         rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
-
+        rotas.put("/informarsenha.html", "br.ufjf.dcc192.BemVindoCommand");
+    
         String clazzName = rotas.get(request.getServletPath());
         try {
             Command comando = (Command) Class.forName(clazzName).newInstance();

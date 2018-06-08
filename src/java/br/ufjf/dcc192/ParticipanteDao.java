@@ -85,32 +85,34 @@ public class ParticipanteDao {
         Participante usuario = new Participante();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery(String.format("SELECT * FROM USUARIO.AMIGO WHERE EMAIL ='" +email+"' AND SENHA = '"+senha+"'"));
-            
-            usuario.setNome(resultado.getString("nome"));
-            usuario.setId(resultado.getLong("id"));
-            usuario.setEmail(resultado.getString("email"));
-            usuario.setSenha(resultado.getString("senha"));
-            comando.close(); 
+            ResultSet resultado = comando.executeQuery(String.format("SELECT * FROM USUARIO.AMIGO WHERE EMAIL ='" + email + "' AND SENHA = '" + senha + "'"));
+            if (resultado.next()) {
+                usuario.setNome(resultado.getString("NOME"));
+                //  usuario.setId(resultado.getLong("#"));
+                usuario.setEmail(resultado.getString("EMAIL"));
+                usuario.setSenha(resultado.getString("SENHA"));
+                comando.close();
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ParticipanteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-       if(usuario.getNome() != null)
-           return usuario;
-       else
-           return null;
+        if (usuario.getNome() != null) {
+            return usuario;
+        } else {
+            return null;
+        }
     }
-    public void addParticipante(Participante p){
-        try{
+
+    public void addParticipante(Participante p) {
+        try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO amigo(email, nome, senha) VALUES('%S','%S','%S')", 
+            comando.executeUpdate(String.format("INSERT INTO amigo(email, nome, senha) VALUES('%S','%S','%S')",
                     p.getEmail(), p.getNome(), p.getSenha()));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(ParticipanteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    
+
     }
 
 }
