@@ -17,6 +17,7 @@ class NovoEventoCommand implements Command {
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
             if ("/novoEvento.html".equals(request.getServletPath())) {
+                request.setAttribute("usuario", request.getParameter("usuario"));
                 RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/novoEvento.jsp");
                 request.setAttribute("titulo",
                         "Pagina inicial");
@@ -24,7 +25,6 @@ class NovoEventoCommand implements Command {
 
             } else {
                 try {
-                    System.out.println("lsdnausavhubjdnksdjhfdcvghfnkmb ubfjkvj fjsbkfnlvx fguybfrnkldgjcv j");
                     String codigo = request.getParameter("codigo");
                     String titulo = request.getParameter("titulo");
                     double minimo = Double.parseDouble(request.getParameter("minimo"));
@@ -33,6 +33,8 @@ class NovoEventoCommand implements Command {
                     Date dataSorteio = sdf.parse(request.getParameter("dataSorteio"));
                     Evento e = new Evento(codigo,titulo,minimo,dataEvento,dataSorteio);
                     EventoDao.getInstace().addEvento(e);
+                    request.setAttribute("usuario", request.getParameter("usuario"));
+                    
                     response.sendRedirect("sorteios.html");
                 } catch (ParseException ex) {
                     Logger.getLogger(NovoEventoCommand.class.getName()).log(Level.SEVERE, null, ex);

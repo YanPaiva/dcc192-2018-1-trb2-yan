@@ -24,7 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author YanNotebook
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/index.html", "/bemvindo.html",
-    "/cadastrar.html", "/informarsenha.html", "/sorteios.html","/novoEvento.html","/adicionarNovoEvento.html"
+    "/cadastrar.html", "/informarsenha.html", "/sorteios.html","/novoEvento.html",
+    "/adicionarNovoEvento.html", "/cadastroRealizado.html"
 })
 public class LoginServlet extends HttpServlet {
 
@@ -61,6 +62,7 @@ public class LoginServlet extends HttpServlet {
         rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
         rotas.put("/informarsenha.html", "br.ufjf.dcc192.BemVindoCommand");
         rotas.put("/adicionarNovoEvento.html", "br.ufjf.dcc192.NovoEventoCommand");
+        rotas.put("/cadastroRealizado.html", "br.ufjf.dcc192.CadastrarCommand");
         
     
         String clazzName = rotas.get(request.getServletPath());
