@@ -14,7 +14,7 @@
                     <td><input type="submit" value="Entrar"/></td>
                     </form>
                    <form method="post" action="cadastrar.html">
-                        <td><input type="submit" value="Cadastrar"/></a></td>
+                        <td><input type="submit" value="Cadastrar"/></td>
                    </form>
                    </tr>        
         </tbody>

@@ -17,7 +17,7 @@
             <td>${evento.getDataEvento()}</td>
             <c:if test="${usuario.getAmigoOculto()==null}">
             <td>
-                <form method="post" action="meusorteio.html">
+                <form method="post" action="inscrição.html">
                     <input type="hidden" name="id" value="${evento.getId()}">
                     <input type="submit" value="PARTICIPAR"/>
                 </form>            

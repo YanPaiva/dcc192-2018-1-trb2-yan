@@ -5,8 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +47,7 @@ public class EventoDao {
                 evento.setMinimo(resultado.getDouble("MINIMO"));
                 evento.setDataAtual(resultado.getDate("DATA"));
                 evento.setDataEvento(resultado.getDate("SORTEIO"));
-                evento.setId(Integer.parseInt(resultado.getString("CODIGO")));
+                evento.setId(resultado.getString("CODIGO"));
                 eventos.add(evento);
 
             }
@@ -75,10 +75,16 @@ public class EventoDao {
 
     }
 
-    public void addEvento(String titulo,Date dataEvento,Date dataAtual,double minimo ) {
+    public void addEvento(Evento e) {
         try {
             Statement comando = conexao.createStatement();
-             comando.executeUpdate("INSERT INTO EVENTO(TITULO,MINIMO,DATA,SORTEIO) VALUES('"+titulo+"','" + minimo + "','"+ dataAtual+"','"+dataEvento+"')");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            
+            System.out.println("INSERT INTO EVENTO(CODIGO,TITULO,MINIMO,DATA,SORTEIO) VALUES('"+e.getId()+"','"+e.getTitulo()+"','" + e.getMinimo() 
+                     + "','"+ sdf.format(e.getDataAtual())+"','"+sdf.format(e.getDataEvento())+"')");
+            
+             comando.executeUpdate("INSERT INTO EVENTO(CODIGO,TITULO,MINIMO,DATA,SORTEIO) VALUES('"+e.getId()+"','"+e.getTitulo()+"'," + e.getMinimo() 
+                     + ",'"+ sdf.format(e.getDataAtual())+"','"+sdf.format(e.getDataEvento())+"')");
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDao.class.getName()).log(Level.SEVERE, null, ex);

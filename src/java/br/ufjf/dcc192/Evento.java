@@ -4,7 +4,7 @@ package br.ufjf.dcc192;
 import java.util.Date;
 
 public class Evento {
-    private Integer id;
+    private String id;
     private String titulo;
     private double minimo;
     private Date dataAtual;
@@ -13,7 +13,7 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(Integer id, String titulo, double minimo, Date dataAtual, Date dataEvento) {
+    public Evento(String id, String titulo, double minimo, Date dataAtual, Date dataEvento) {
         this.id = id;
         this.titulo = titulo;
         this.minimo = minimo;
@@ -21,11 +21,11 @@ public class Evento {
         this.dataEvento = dataEvento;
     }
     
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

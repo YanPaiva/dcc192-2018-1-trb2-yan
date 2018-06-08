@@ -26,7 +26,7 @@
         <tr>
             <th><a href="bemvindo.html">Inicio</a></th>
             <th><a href="sorteios.html">Sorteios</a></th>
-            <th><a href="meusorteio.html">Meu Sorteio</a></th>
+            <th><a href="novoEvento.html">Novo Evento</a></th>
             <th><a href="index.html">Sair</a></th>
         </tr>
     </thead>
