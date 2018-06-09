@@ -24,8 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author YanNotebook
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/index.html", "/bemvindo.html",
-    "/cadastrar.html", "/informarsenha.html", "/sorteios.html","/novoEvento.html",
-    "/adicionarNovoEvento.html", "/cadastroRealizado.html"
+    "/cadastrar.html", "/informarsenha.html", "/sorteios.html","/novoEvento.html","/inscricao.html","/inscritos.html"
 })
 public class LoginServlet extends HttpServlet {
 
@@ -37,6 +36,8 @@ public class LoginServlet extends HttpServlet {
         rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
         rotas.put("/informarsenha.html", "br.ufjf.dcc192.InformarsenhaCommand");
         rotas.put("/sorteios.html", "br.ufjf.dcc192.SorteiosCommand");
+        rotas.put("/inscricao.html", "br.ufjf.dcc192.InscricaoCommand");
+        rotas.put("/inscritos.html", "br.ufjf.dcc192.InscritosCommand");
         rotas.put("/novoEvento.html", "br.ufjf.dcc192.NovoEventoCommand");
        
     
@@ -59,10 +60,11 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/bemvindo.html", "br.ufjf.dcc192.BemVindoCommand");
-        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastrarCommandPost");
         rotas.put("/informarsenha.html", "br.ufjf.dcc192.BemVindoCommand");
-        rotas.put("/adicionarNovoEvento.html", "br.ufjf.dcc192.NovoEventoCommand");
-        rotas.put("/cadastroRealizado.html", "br.ufjf.dcc192.CadastrarCommand");
+        rotas.put("/novoEvento.html", "br.ufjf.dcc192.NovoEventoCommandPost");
+        
+        rotas.put("/inscricao.html", "br.ufjf.dcc192.InscricaoCommandPost");
         
     
         String clazzName = rotas.get(request.getServletPath());

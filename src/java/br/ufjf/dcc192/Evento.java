@@ -1,9 +1,11 @@
-
 package br.ufjf.dcc192;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class Evento {
+
     private String id;
     private String titulo;
     private double minimo;
@@ -20,7 +22,7 @@ public class Evento {
         this.dataAtual = dataAtual;
         this.dataEvento = dataEvento;
     }
-    
+
     public String getId() {
         return id;
     }
@@ -60,5 +62,19 @@ public class Evento {
     public void setDataEvento(Date dataEvento) {
         this.dataEvento = dataEvento;
     }
-    
+
+    public void sorteia() {
+        List<Participante> amigo = EventoAmigoDao.getInstace().listParticipantes(id);
+        if (amigo.get(0).getSorteado() == null) {
+            //Collections.shuffle(amigo);
+            int i;
+            for (i = 0; i < amigo.size()-1; i++) {
+
+                ParticipanteDao.getInstace().addSelecionado(amigo.get(i).getId(), amigo.get(i++).getId());
+            }
+
+            ParticipanteDao.getInstace().addSelecionado(amigo.get(amigo.size()-1).getId(), amigo.get(0).getId());
+        }
+    }
+
 }

@@ -17,12 +17,18 @@
             <td>${evento.getDataEvento()}</td>
             <c:if test="${usuario.getAmigoOculto()==null}">
             <td>
-                <form method="post" action="inscrição.html">
+                <form method="get" action="inscricao.html">
                     <input type="hidden" name="id" value="${evento.getId()}">
-                    <input type="submit" value="PARTICIPAR"/>
+                    <input type="submit" value="ADICIONAR"/>
                 </form>            
             </td>
             </c:if>
+            <td>
+                <form method="get" action="inscritos.html">
+                    <input type="hidden" name="id" value="${evento.getId()}">
+                    <input type="submit" value="SORTEIO"/>
+                </form>            
+            </td>
         </tr>
     </c:forEach>
 </table>

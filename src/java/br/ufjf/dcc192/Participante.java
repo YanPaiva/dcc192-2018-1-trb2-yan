@@ -2,14 +2,14 @@ package br.ufjf.dcc192;
 
 public class Participante {
 
-    private Long id;
+    private int id;
     private String nome;
     private String email;
     private String senha;
     private Participante sorteado;
     private Evento amigoOculto;
 
-    public Participante(Long id, String nome, String email,
+    public Participante(int id, String nome, String email,
             String senha, Participante sorteado, Evento sorteio) {
         this.id = id;
         this.nome = nome;
@@ -20,13 +20,14 @@ public class Participante {
     }
 
     public Participante() {
+        
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

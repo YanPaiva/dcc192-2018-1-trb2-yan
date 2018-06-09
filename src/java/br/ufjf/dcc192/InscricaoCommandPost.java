@@ -11,16 +11,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-class NovoEventoCommand implements Command {
+class InscricaoCommandPost implements Command {
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-                request.setAttribute("usuario", request.getParameter("usuario"));
-                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/novoEvento.jsp");
-                request.setAttribute("titulo",
-                        "Pagina inicial");
-                dispachante.forward(request, response);
+                String codigoEvento = request.getParameter("id");
+                int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+                EventoAmigoDao.getInstace().addEvento(codigoEvento, idUsuario);
+                response.sendRedirect("inscricao.html?id="+request.getParameter("id"));
 
           
     }

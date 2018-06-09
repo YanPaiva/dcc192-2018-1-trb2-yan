@@ -1,5 +1,5 @@
 <p>Bem vindo</p>
-<form method="Post" action="bemvindo.html">
+<form method="POST" action="bemvindo.html">
     <table border="1">
         <tbody>
             <tr>
@@ -13,7 +13,7 @@
                 <tr>
                     <td><input type="submit" value="Entrar"/></td>
                     </form>
-                   <form method="post" action="cadastrar.html">
+                   <form method="get" action="cadastrar.html">
                         <td><input type="submit" value="Cadastrar"/></td>
                    </form>
                    </tr>        

@@ -43,7 +43,7 @@ public class ParticipanteDao {
             while (resultado.next()) {
                 Participante amigos = new Participante();
                 amigos.setNome(resultado.getString("nome"));
-                amigos.setId(resultado.getLong("id"));
+                amigos.setId(resultado.getInt("id"));
                 todosAmigos.add(amigos);
 
             }
@@ -56,6 +56,8 @@ public class ParticipanteDao {
         return todosAmigos;
 
     }
+    
+    
 
     void create(String titulo) {
         try {
@@ -108,6 +110,18 @@ public class ParticipanteDao {
             Statement comando = conexao.createStatement();
             comando.executeUpdate(String.format("INSERT INTO amigo(email, nome, senha) VALUES('%S','%S','%S')",
                     p.getEmail(), p.getNome(), p.getSenha()));
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ParticipanteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void addSelecionado(int id,int idSelecionado) {
+        try {
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate("Update amigo set amigoselecionado = "+idSelecionado+" where id ="+id);
+                   
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(ParticipanteDao.class.getName()).log(Level.SEVERE, null, ex);

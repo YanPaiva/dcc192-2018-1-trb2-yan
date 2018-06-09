@@ -11,20 +11,10 @@ class CadastrarCommand implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-            if ("/cadastrar.html".equals(request.getServletPath())) {
-                RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/cadastrar.jsp");
-                request.setAttribute("titulo",
-                        "Novo Usuario");
-                dispachante.forward(request, response);
-
-            } else {
-                Participante p = new Participante();
-                p.setEmail(request.getParameter("txtemail"));
-                p.setNome(request.getParameter("txtnome"));
-                p.setSenha(request.getParameter("txtsenha"));
-                ParticipanteDao.getInstace().addParticipante(p);
-                response.sendRedirect("index.html");
-            }
+            RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/cadastrar.jsp");
+            request.setAttribute("titulo",
+                    "Novo Usuario");
+            dispachante.forward(request, response);
 
         }
 

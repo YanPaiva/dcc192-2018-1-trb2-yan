@@ -2,7 +2,7 @@
 <%@include file="jspf/cabecalho.jspf" %>
 <h1>O melhor amigo Oculto do ano</h1>
 
-<form method="Post" action="adicionarNovoEvento.html">
+<form method="Post" action="novoEvento.html">
     <label>Código</label><input type="text" name="codigo" value="" size="50" />
     <label>Titulo</label><input type="text" name="titulo" value="" size="50" />
     <label>Valor mínimo</label><input type="number" min="0" name="minimo" value="" size="50" />
