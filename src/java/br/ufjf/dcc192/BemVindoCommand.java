@@ -31,8 +31,13 @@ class BemVindoCommand implements Command {
                             "Pagina inicial");
                     dispachante.forward(request, response);
                 }
-            } else {
+            } else if(login != null){
                 response.sendRedirect("informarsenha.html?email=" + login);
+            }else{
+                    RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/bemVindo.jsp");
+                    request.setAttribute("titulo",
+                            "Pagina inicial");
+                    dispachante.forward(request, response);
             }
         }
 

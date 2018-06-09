@@ -1,5 +1,4 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@include file="jspf/cabecalho.jspf" %>
 <p>Por favor coloque novamente sua senha!</p>
 <form method="Post" action="bemvindo.html">
     <table border="1">
