@@ -14,6 +14,7 @@ class InscritosCommand implements Command {
         {
                
                request.setAttribute("idUser", request.getParameter("idUser"));
+               request.setAttribute("id", request.getParameter("id"));
                 RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/inscritos.jsp");
                 request.setAttribute("titulo",
                         "Pagina inicial");

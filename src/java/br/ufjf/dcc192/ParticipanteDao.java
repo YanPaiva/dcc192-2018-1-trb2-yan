@@ -83,6 +83,31 @@ public class ParticipanteDao {
 
     }
 
+     public Participante getParticipante(int id) {
+        Participante usuario = new Participante();
+        Participante aux = new Participante();
+        try {
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery("SELECT * FROM USUARIO.AMIGO WHERE id =" + id);
+            if (resultado.next()) {
+                usuario.setNome(resultado.getString("NOME"));
+                usuario.setId(resultado.getInt("ID"));
+                usuario.setEmail(resultado.getString("EMAIL"));
+                usuario.setSenha(resultado.getString("SENHA"));
+                aux.setId(resultado.getInt("AMIGOSELECIONADO"));
+                usuario.setSorteado(aux);
+                comando.close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ParticipanteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (usuario.getNome() != null) {
+            return usuario;
+        } else {
+            return null;
+        }
+    }
+    
     public Participante getParticipante(String email, String senha) {
         Participante usuario = new Participante();
         try {

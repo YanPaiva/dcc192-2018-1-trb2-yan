@@ -15,7 +15,7 @@
                 </td>>
                     <c:if test="${user.getSorteado() != null}">
                 <c:if test="${user.getId() == param.idUser}">
-             <td><a href="amigo.html" >veja seu amigo oculto </a><td>
+             <td><a href="amigo.html?idevento=${id}&idUser=${param.idUser}" >veja seu amigo oculto </a><td>
                 </c:if>
                 <c:if test="${user.getId() != param.idUser}">
              <td>???<td>

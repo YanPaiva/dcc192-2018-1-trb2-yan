@@ -41,7 +41,7 @@ public class EventoAmigoDao {
         List<Participante> todosAmigos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT * from AMIGO where id not in (select idamigo from amigoEvento where idEvento = '"+idevento+"')");
+            ResultSet resultado = comando.executeQuery("SELECT * from AMIGO where id not in (select idamigo from amigoEvento)");
             while (resultado.next()) {
                 Participante amigos = new Participante();
                 amigos.setNome(resultado.getString("nome"));
