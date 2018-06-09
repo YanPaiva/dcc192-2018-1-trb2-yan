@@ -16,7 +16,7 @@
              <td><a href="amigo.html" >veja seu amigo oculto </a><td>
             </c:if>       
             
-    </tr>
+        </tr>
 </c:forEach>
 </table>
     

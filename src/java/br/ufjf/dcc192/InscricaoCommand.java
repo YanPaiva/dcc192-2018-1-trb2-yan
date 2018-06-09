@@ -21,7 +21,7 @@ class InscricaoCommand implements Command {
                 RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/inscricao.jsp");
                 request.setAttribute("titulo",
                         "Pagina inicial");
-                request.setAttribute("usuarios", EventoAmigoDao.getInstace().listDisponiveis());
+                request.setAttribute("usuarios", EventoAmigoDao.getInstace().listDisponiveis(request.getParameter("id")));
                 dispachante.forward(request, response);
 
           

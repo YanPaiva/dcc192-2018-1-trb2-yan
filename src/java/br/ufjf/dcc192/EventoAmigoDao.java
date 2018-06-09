@@ -36,12 +36,12 @@ public class EventoAmigoDao {
 
     }
 
-    public List<Participante> listDisponiveis() {
+    public List<Participante> listDisponiveis(String idevento) {
 
         List<Participante> todosAmigos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT * from AMIGO where id not in (select idamigo from amigoEvento)");
+            ResultSet resultado = comando.executeQuery("SELECT * from AMIGO where id not in (select idamigo from amigoEvento where idEvento = '"+idevento+"')");
             while (resultado.next()) {
                 Participante amigos = new Participante();
                 amigos.setNome(resultado.getString("nome"));
@@ -65,6 +65,7 @@ public class EventoAmigoDao {
         try {
             Participante p;
             Statement comando = conexao.createStatement();
+            Statement comando2 = conexao.createStatement();
             ResultSet resultado = comando.executeQuery("SELECT * from AMIGoevento inner join amigo on id = idamigo where idevento = '" + idevento + " '");
             while (resultado.next()) {
                 Participante amigos = new Participante();
@@ -75,7 +76,7 @@ public class EventoAmigoDao {
                 amigos.setAmigoOculto(e);
                 if (null != resultado.getString("amigoselecionado")) {
                     p = new Participante();
-                    ResultSet resultado2 = comando.executeQuery("Select * from amigo where id=" + resultado.getInt("AMIGOSELECIONADO"));
+                    ResultSet resultado2 = comando2.executeQuery("Select * from amigo where id=" + resultado.getInt("AMIGOSELECIONADO"));
                     if (resultado2.next()) {
                         p.setNome(resultado2.getString("nome"));
                         p.setId(resultado2.getInt("id"));

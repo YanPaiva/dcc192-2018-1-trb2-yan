@@ -45,8 +45,8 @@ public class EventoDao {
                 Evento evento = new Evento();
                 evento.setTitulo(resultado.getString("TITULO"));
                 evento.setMinimo(resultado.getDouble("MINIMO"));
-                evento.setDataAtual(resultado.getDate("DATA"));
-                evento.setDataEvento(resultado.getDate("SORTEIO"));
+                evento.setDataEvento(resultado.getDate("DATA"));
+                evento.setDataSorteio(resultado.getDate("SORTEIO"));
                 evento.setId(resultado.getString("CODIGO"));
                 eventos.add(evento);
 
@@ -80,11 +80,10 @@ public class EventoDao {
             Statement comando = conexao.createStatement();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             
-            System.out.println("INSERT INTO EVENTO(CODIGO,TITULO,MINIMO,DATA,SORTEIO) VALUES('"+e.getId()+"','"+e.getTitulo()+"','" + e.getMinimo() 
-                     + "','"+ sdf.format(e.getDataAtual())+"','"+sdf.format(e.getDataEvento())+"')");
+            
             
              comando.executeUpdate("INSERT INTO EVENTO(CODIGO,TITULO,MINIMO,DATA,SORTEIO) VALUES('"+e.getId()+"','"+e.getTitulo()+"'," + e.getMinimo() 
-                     + ",'"+ sdf.format(e.getDataAtual())+"','"+sdf.format(e.getDataEvento())+"')");
+                     + ",'"+ sdf.format(e.getDataEvento())+"','"+sdf.format(e.getDataSorteio())+"')");
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDao.class.getName()).log(Level.SEVERE, null, ex);

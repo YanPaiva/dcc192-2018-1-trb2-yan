@@ -9,8 +9,9 @@ public class Evento {
     private String id;
     private String titulo;
     private double minimo;
-    private Date dataAtual;
+    private Date dataSorteio;
     private Date dataEvento;
+    private boolean sorteia = true;
 
     public Evento() {
     }
@@ -19,10 +20,20 @@ public class Evento {
         this.id = id;
         this.titulo = titulo;
         this.minimo = minimo;
-        this.dataAtual = dataAtual;
+        this.dataSorteio = dataAtual;
         this.dataEvento = dataEvento;
     }
 
+    public boolean isSorteia() {
+        return sorteia;
+    }
+
+    public void setSorteia(boolean sorteia) {
+        this.sorteia = sorteia;
+    }
+
+    
+    
     public String getId() {
         return id;
     }
@@ -47,12 +58,12 @@ public class Evento {
         this.minimo = minimo;
     }
 
-    public Date getDataAtual() {
-        return dataAtual;
+    public Date getDataSorteio() {
+        return dataSorteio;
     }
 
-    public void setDataAtual(Date dataAtual) {
-        this.dataAtual = dataAtual;
+    public void setDataSorteio(Date dataSorteio) {
+        this.dataSorteio = dataSorteio;
     }
 
     public Date getDataEvento() {

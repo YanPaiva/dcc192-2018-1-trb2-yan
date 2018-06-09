@@ -17,11 +17,11 @@ class InscritosCommand implements Command {
                 request.setAttribute("titulo",
                         "Pagina inicial");
                 List<Participante> p =  EventoAmigoDao.getInstace().listParticipantes(request.getParameter("id"));
-                Evento e =p.get(0).getAmigoOculto();
+                Evento e = p.get(0).getAmigoOculto();
                 if(p.get(0).getSorteado() == null){
                     e.sorteia();
                 }
-               p =EventoAmigoDao.getInstace().listParticipantes(request.getParameter("id"));
+                p = EventoAmigoDao.getInstace().listParticipantes(request.getParameter("id"));
                 
                 request.setAttribute("usuarios", p);
                 dispachante.forward(request, response);
