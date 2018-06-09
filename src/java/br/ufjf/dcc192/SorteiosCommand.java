@@ -26,7 +26,8 @@ class SorteiosCommand implements Command {
             }
                 request.setAttribute("eventos",e);
                 
-                request.setAttribute("usuario", request.getParameter("usuario"));
+                request.setAttribute("idUser", request.getParameter("idUser"));
+                
                 dispachante.forward(request, response);
          
         }

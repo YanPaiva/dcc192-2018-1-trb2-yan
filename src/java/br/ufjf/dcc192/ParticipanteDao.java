@@ -90,7 +90,7 @@ public class ParticipanteDao {
             ResultSet resultado = comando.executeQuery(String.format("SELECT * FROM USUARIO.AMIGO WHERE EMAIL ='" + email + "' AND SENHA = '" + senha + "'"));
             if (resultado.next()) {
                 usuario.setNome(resultado.getString("NOME"));
-                //  usuario.setId(resultado.getLong("#"));
+                usuario.setId(resultado.getInt("ID"));
                 usuario.setEmail(resultado.getString("EMAIL"));
                 usuario.setSenha(resultado.getString("SENHA"));
                 comando.close();

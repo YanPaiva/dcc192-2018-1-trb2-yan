@@ -11,6 +11,7 @@ class CadastrarCommandPost implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
+            
                 Participante p = new Participante();
                 p.setEmail(request.getParameter("txtemail"));
                 p.setNome(request.getParameter("txtnome"));

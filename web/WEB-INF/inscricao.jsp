@@ -4,14 +4,14 @@
 <table>
     <th>Id</th>
     <th>Nome</th>
-    <c:forEach var="usuario" items="${usuarios}">
+    <c:forEach var="user" items="${usuarios}">
         <tr>
-            <td>${usuario.getId()}</td>
-            <td>${usuario.getNome()}</td>
+            <td>${user.getId()}</td>
+            <td>${user.getNome()}</td>
             <td>
                 <form method="post" action="inscricao.html?id=${id}">
-                 <input type="hidden" name="idUsuario" value="${usuario.getId()}">
-                
+                 <input type="hidden" name="idUsuario" value="${user.getId()}">
+                 <input type="hidden" name="idUser" value="${idUser}">
                  <input type="submit" value="Adicionar ao evento"/>
                 
             </form>

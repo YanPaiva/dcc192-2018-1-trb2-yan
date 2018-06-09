@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="jspf/cabecalho.jspf" %>
 
+                
 <table>
     <th>codigo do evento</th>
     <th>titulo do evento</th>
@@ -16,21 +17,24 @@
             <td>${evento.getDataSorteio()}</td>
             <td>${evento.getDataEvento()}</td>
 
-            <c:if test="${usuario.getAmigoOculto()==null}">
+           
                 <c:if test="${!evento.isSorteia()}">
                     <td>
                         <form method="get" action="inscricao.html">
                             <input type="hidden" name="id" value="${evento.getId()}">
+                            <input type="hidden" name="idUser" value="${idUser}">
                             <input type="submit" value="ADICIONAR"/>
                         </form>            
                     </td>
                 </c:if>
 
-            </c:if>
+            
             <c:if test="${evento.isSorteia()}">
                 <td>
                     <form method="get" action="inscritos.html">
                         <input type="hidden" name="id" value="${evento.getId()}">
+                        <input type="hidden" name="idUser" value="${idUser}">
+                        
                         <input type="submit" value="SORTEIO"/>
                     </form>            
                 </td>

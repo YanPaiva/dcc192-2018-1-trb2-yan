@@ -16,13 +16,13 @@ class InscricaoCommandPost implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-                String codigoEvento = request.getParameter("id");
-                int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-                EventoAmigoDao.getInstace().addEvento(codigoEvento, idUsuario);
-                response.sendRedirect("inscricao.html?id="+request.getParameter("id"));
+            request.setAttribute("idUser", request.getParameter("idUser"));
+            String codigoEvento = request.getParameter("id");
+            int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+            EventoAmigoDao.getInstace().addEvento(codigoEvento, idUsuario);
+            response.sendRedirect("inscricao.html?id=" + request.getParameter("id")+"&idUser="+request.getParameter("idUser"));
 
-          
+        }
+
     }
-
-}
 }

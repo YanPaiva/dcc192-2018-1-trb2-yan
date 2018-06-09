@@ -23,7 +23,7 @@ class BemVindoCommand implements Command {
                     RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/bemVindo.jsp");
                     request.setAttribute("titulo",
                             "Logado com Sucesso");
-                    request.setAttribute("usuario", logando);
+                    request.setAttribute("idUser", logando.getId());
                     dispachante.forward(request, response);
                 } else {
                     RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/index.jsp");
@@ -37,6 +37,7 @@ class BemVindoCommand implements Command {
                     RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/bemVindo.jsp");
                     request.setAttribute("titulo",
                             "Pagina inicial");
+                    request.setAttribute("idUser", request.getParameter("idUser"));
                     dispachante.forward(request, response);
             }
         }

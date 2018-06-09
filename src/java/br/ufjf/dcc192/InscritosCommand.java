@@ -13,6 +13,7 @@ class InscritosCommand implements Command {
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
                
+               request.setAttribute("idUser", request.getParameter("idUser"));
                 RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/inscritos.jsp");
                 request.setAttribute("titulo",
                         "Pagina inicial");

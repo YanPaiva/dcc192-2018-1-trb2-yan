@@ -14,6 +14,7 @@ class CadastrarCommand implements Command {
             RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/cadastrar.jsp");
             request.setAttribute("titulo",
                     "Novo Usuario");
+            request.setAttribute("idUser", request.getParameter("idUser"));
             dispachante.forward(request, response);
 
         }

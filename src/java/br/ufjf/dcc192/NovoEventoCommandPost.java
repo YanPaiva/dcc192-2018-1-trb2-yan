@@ -16,7 +16,7 @@ class NovoEventoCommandPost implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-            
+            request.setAttribute("idUser", request.getParameter("idUser"));
                 try {
                     String codigo = request.getParameter("codigo");
                     String titulo = request.getParameter("titulo");
@@ -26,7 +26,6 @@ class NovoEventoCommandPost implements Command {
                     Date dataSorteio = sdf.parse(request.getParameter("dataSorteio"));
                     Evento e = new Evento(codigo,titulo,minimo,dataEvento,dataSorteio);
                     EventoDao.getInstace().addEvento(e);
-                    request.setAttribute("usuario", request.getParameter("usuario"));
                     
                     response.sendRedirect("sorteios.html");
                 } catch (ParseException ex) {

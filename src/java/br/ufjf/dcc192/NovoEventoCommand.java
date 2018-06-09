@@ -16,7 +16,8 @@ class NovoEventoCommand implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-                request.setAttribute("usuario", request.getParameter("usuario"));
+            request.setAttribute("idUser", request.getParameter("idUser"));
+                
                 RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/novoEvento.jsp");
                 request.setAttribute("titulo",
                         "Pagina inicial");

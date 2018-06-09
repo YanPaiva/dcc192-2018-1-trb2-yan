@@ -16,7 +16,9 @@ class InscricaoCommand implements Command {
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
-                request.setAttribute("usuario", request.getParameter("usuario"));
+                request.setAttribute("idUser", request.getParameter("idUser"));
+                
+                
                 request.setAttribute("id", request.getParameter("id"));
                 RequestDispatcher dispachante = request.getRequestDispatcher("/WEB-INF/inscricao.jsp");
                 request.setAttribute("titulo",
