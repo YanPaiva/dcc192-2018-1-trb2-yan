@@ -9,10 +9,10 @@
         <tr>
             <td>${usuario.getId()}</td>
             <td>${usuario.getNome()}</td>
-            <c:if test="${usuario.getSorteado == null}">
+            <c:if test="${usuario.getSorteado() == null}">
                 <td>?<td>
             </c:if>
-             <c:if test="${usuario.getSorteado != null}">
+             <c:if test="${usuario.getSorteado() != null}">
              <td><a href="amigo.html" >veja seu amigo oculto </a><td>
             </c:if>       
             

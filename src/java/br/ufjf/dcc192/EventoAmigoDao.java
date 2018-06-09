@@ -75,11 +75,11 @@ public class EventoAmigoDao {
                 amigos.setAmigoOculto(e);
                 if (null != resultado.getString("amigoselecionado")) {
                     p = new Participante();
-                    ResultSet resultado2 = comando.executeQuery("Select nome from amigo where id=" + resultado.getInt("AMIGOSELECIONADO"));
-                    if(resultado2.next()){
-                    p.setNome(resultado2.getString("nome"));
-                    p.setId(resultado.getInt("amigoselecionado"));
-                    amigos.setSorteado(p);
+                    ResultSet resultado2 = comando.executeQuery("Select * from amigo where id=" + resultado.getInt("AMIGOSELECIONADO"));
+                    if (resultado2.next()) {
+                        p.setNome(resultado2.getString("nome"));
+                        p.setId(resultado2.getInt("id"));
+                        amigos.setSorteado(p);
                     }
                 }
                 todosAmigos.add(amigos);

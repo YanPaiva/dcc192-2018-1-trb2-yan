@@ -66,11 +66,11 @@ public class Evento {
     public void sorteia() {
         List<Participante> amigo = EventoAmigoDao.getInstace().listParticipantes(id);
         if (amigo.get(0).getSorteado() == null) {
-            //Collections.shuffle(amigo);
-            int i;
+            Collections.shuffle(amigo);
+            int i;    
             for (i = 0; i < amigo.size()-1; i++) {
 
-                ParticipanteDao.getInstace().addSelecionado(amigo.get(i).getId(), amigo.get(i++).getId());
+                ParticipanteDao.getInstace().addSelecionado(amigo.get(i).getId(), amigo.get(i+1).getId());
             }
 
             ParticipanteDao.getInstace().addSelecionado(amigo.get(amigo.size()-1).getId(), amigo.get(0).getId());
