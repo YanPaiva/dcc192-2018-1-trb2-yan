@@ -8,4 +8,4 @@ Yan de Paiva Andrade Pinto - 201476038
 
 Objetivo
 
-O sistema visa criar um sistema de amigo oculto.
+O sistema visa criar um sistema de amigo oculto, onde é necessário utilizar o CRIA BANCO.sql e dentro do programa criar novos cadastros, fazer o login, criar novos eventos, adicionar pessoas que ainda não foram adicionada a nenhum evento, chegado o dia do sorteio é possivel fazer o sorteio e visualizar o amigo oculto do usuario que estiver logado no momento.
