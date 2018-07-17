@@ -1,28 +1,7 @@
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" 
-              content="text/html; charset=UTF-8" />
-        <title><%=request.getAttribute("titulo")%></title>
-        <link rel="stylesheet" href="css/main.css" />
-    </head>
-    <body>
-        <header>
-            <h1>Hello World!</h1>
-            <div>São <%=new Date()%></div>
-        </header>
-        <aside>
-            <menu>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="teste.html">Teste</a></li>
-            </menu>
-        </aside>
-        <main>
-            <article>
-                <h1><%=request.getAttribute("titulo")%></h1>
-                <table border="1">
-    <thead>
+    <table border="1">
         <tr>
             <th><a href="bemvindo.html?idUser=<%=request.getAttribute("idUser")%>">Inicio</a></th>
             <th><a href="sorteios.html?idUser=<%=request.getAttribute("idUser")%>">Sorteios</a></th>
@@ -32,3 +11,4 @@
     </thead>
 </tbody>
 </table>
+<h2>use somente letras maiusculas nos campos de cadastro e login</h2>

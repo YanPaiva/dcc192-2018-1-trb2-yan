@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <p>Por favor coloque novamente sua senha!</p>
-<form method="Post" action="bemvindo.html">
+<h2>use somente letras maiusculas nos campos de cadastro e login</h2>
+<form method="Post" action="item-editar.html">
     <table border="1">
         <tbody>
             <tr>
@@ -10,7 +11,7 @@
             <tr>
 
                 <td><h4>Senha: </h4></td>
-                <td><input type="password" name="txtsenha" value="" size="50"/></td>
+                <td><input type="password" name="txtsenha" value="" size="50" pattern="[A-Z0-9\s]+$"/></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Entrar"/></td>

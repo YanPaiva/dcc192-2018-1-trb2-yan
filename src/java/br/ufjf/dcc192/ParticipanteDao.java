@@ -26,7 +26,7 @@ public class ParticipanteDao {
         try {
             if (conexao == null) {
                 conexao = DriverManager.
-                        getConnection("jdbc:derby://localhost:1527/dcc-192-2018-1",
+                        getConnection("jdbc:derby://localhost:1527/testeSQLTrab2",
                                 "usuario", "usuario");
             }
         } catch (SQLException ex) {

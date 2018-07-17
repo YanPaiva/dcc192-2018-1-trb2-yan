@@ -20,7 +20,10 @@ class NovoEventoCommandPost implements Command {
                 try {
                     String codigo = request.getParameter("codigo");
                     String titulo = request.getParameter("titulo");
+                    
                     double minimo = Double.parseDouble(request.getParameter("minimo"));
+                    
+                    
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     Date dataEvento = sdf.parse(request.getParameter("dataEvento"));
                     Date dataSorteio = sdf.parse(request.getParameter("dataSorteio"));

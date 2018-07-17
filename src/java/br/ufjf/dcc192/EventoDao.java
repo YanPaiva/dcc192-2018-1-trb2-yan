@@ -27,7 +27,7 @@ public class EventoDao {
         try {
             if (conexao == null) {
                 conexao = DriverManager.
-                        getConnection("jdbc:derby://localhost:1527/dcc-192-2018-1",
+                        getConnection("jdbc:derby://localhost:1527/testeSQLTrab2",
                                 "usuario", "usuario");
             }
         } catch (SQLException ex) {
@@ -45,7 +45,7 @@ public class EventoDao {
                 Evento evento = new Evento();
                 evento.setTitulo(resultado.getString("TITULO"));
                 evento.setMinimo(resultado.getDouble("MINIMO"));
-                evento.setDataEvento(resultado.getDate("DATA"));
+                evento.setDataEvento(resultado.getDate("DATAEVENTO"));
                 evento.setDataSorteio(resultado.getDate("SORTEIO"));
                 evento.setId(resultado.getString("CODIGO"));
                 eventos.add(evento);
@@ -82,7 +82,7 @@ public class EventoDao {
             
             
             
-             comando.executeUpdate("INSERT INTO EVENTO(CODIGO,TITULO,MINIMO,DATA,SORTEIO) VALUES('"+e.getId()+"','"+e.getTitulo()+"'," + e.getMinimo() 
+             comando.executeUpdate("INSERT INTO EVENTO(CODIGO,TITULO,MINIMO,DATAEVENTO,SORTEIO) VALUES('"+e.getId()+"','"+e.getTitulo()+"'," + e.getMinimo() 
                      + ",'"+ sdf.format(e.getDataEvento())+"','"+sdf.format(e.getDataSorteio())+"')");
             comando.close();
         } catch (SQLException ex) {
